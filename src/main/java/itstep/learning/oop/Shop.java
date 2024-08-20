@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Shop {
-    private List<Product> products;
+    private final List<Product> products;
 
     public Shop() {
-        products = new ArrayList<Product>();
+        products = new ArrayList<>();
         products.add(new Lamp("Philips", 60.0));
         products.add(new Pump("Pumper", 100));
         products.add(new Accumulator("Varta", 75));
