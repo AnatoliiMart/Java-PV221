@@ -2,7 +2,10 @@ package itstep.learning.oop;
 
 import java.util.Locale;
 
-public class Pump extends Product {
+@Warranty(2)
+public class Pump
+        extends Product
+        implements Manual{
     int Productivity;
 
     public Pump(String manufacturer,int productivity) {
@@ -24,5 +27,10 @@ public class Pump extends Product {
                 "Pump: '%s', Productivity: '%dl/h'",
                 super.getManufacturer(), this.getProductivity()
         );
+    }
+    @Works("as pump")
+
+    public void pump() {
+        System.out.println("pump: " + this.getCard());
     }
 }
