@@ -29,7 +29,6 @@ public class Pump
         );
     }
     @Works("as pump")
-
     public void pump() {
         System.out.println("pump: " + this.getCard());
     }

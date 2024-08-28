@@ -1,7 +1,6 @@
 package itstep.learning.services.hash;
 
 import com.google.inject.Singleton;
-import sun.security.provider.MD5;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

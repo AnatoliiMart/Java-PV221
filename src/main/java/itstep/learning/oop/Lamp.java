@@ -25,7 +25,6 @@ public class Lamp
         this.Power = power;
     }
 
-
     @Override
     public String getCard() {
         return String.format(
@@ -41,7 +40,6 @@ public class Lamp
     }
 
     @Works("as lamp")
-
     public void shine() {
         System.out.println("Shine: " + this.getCard());
     }

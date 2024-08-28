@@ -1,8 +1,10 @@
 package itstep.learning;
 
 import com.google.inject.Guice;
+import itstep.learning.IoC.DbModule;
 import itstep.learning.IoC.IocDemo;
 import itstep.learning.IoC.ServicesModule;
+import itstep.learning.db.DbDemo;
 import itstep.learning.oop.Shop;
 
 /**
@@ -13,11 +15,12 @@ public class App
 {
     public static void main( String[] args )
     {
-//        Guice
-//                .createInjector(new ServicesModule()) //configuration
-//                .getInstance(IocDemo.class)           // resolve
-//                .run();                               //run
-//
-        new Shop().run();
+        Guice
+                .createInjector(
+                        new ServicesModule(),
+                        new DbModule())               //configuration
+                .getInstance(IocDemo.class)            // resolve
+                .run();                               //run
+
     }
 }
