@@ -13,19 +13,16 @@ public class PasswordGenerator implements Generator {
         SecureRandom random = new SecureRandom();
         StringBuilder sb = new StringBuilder(length);
 
-        // Ensure at least one of each type of character
         sb.append(LOWER.charAt(random.nextInt(LOWER.length())));
         sb.append(UPPER.charAt(random.nextInt(UPPER.length())));
         sb.append(DIGITS.charAt(random.nextInt(DIGITS.length())));
         sb.append(SPECIAL.charAt(random.nextInt(SPECIAL.length())));
 
-        // Fill the rest of the password
         for (int i = 4; i < length; i++) {
             String charSet = LOWER + UPPER + DIGITS + SPECIAL;
             sb.append(charSet.charAt(random.nextInt(charSet.length())));
         }
 
-        // Shuffle the generated password for better randomness
         char[] passwordChars = sb.toString().toCharArray();
         for (int i = 0; i < length; i++) {
             int randomIndex = random.nextInt(length);
