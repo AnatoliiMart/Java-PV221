@@ -24,10 +24,16 @@ public class DbDemo {
             Connection conn = reader.getConnection();
             System.out.println("Connected to the database.");
             Statement statement = conn.createStatement();
-            ResultSet res = statement.executeQuery("SHOW DATABASES");
+            String querySQL = "SELECT * FROM application_log ORDER BY run_timestamp DESC";
+            ResultSet res = statement.executeQuery(querySQL);
             while (res.next()) {
-                System.out.println(res.getString(1));
+                int id = res.getInt("id");
+                String timestamp = res.getString("run_timestamp");
+                System.out.println("ID: " + id + ", Timestamp: " + timestamp);
             }
+            res.close();
+            statement.close();
+            conn.close();
         } catch (IOException | SQLException e) {
             throw new RuntimeException(e);
         }
